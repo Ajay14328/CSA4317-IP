@@ -1,0 +1,52 @@
+/* General page styling */
+body {
+  background-color: seashell; /* SVG color keyword */
+  font-family: Arial, sans-serif;
+}
+
+/* Bullet styling for lists */
+ul {
+  list-style-type: square; /* Change bullet style to square */
+  margin-left: 20px;
+}
+
+/* Anchor pseudo-classes */
+a:link {
+  color: blue; /* Default link color */
+}
+
+a:visited {
+  color: purple; /* Visited link color */
+}
+
+a:hover {
+  color: green; /* Hover color */
+  text-decoration: underline;
+}
+
+a:active {
+  color: red; /* Active link color */
+}
+
+/* Table styling */
+caption {
+  font-weight: bold; /* Bold captions */
+}
+
+th {
+  font-weight: normal; /* Normal weight */
+  font-style: italic; /* Italicized headers */
+}
+
+td {
+  font-size: 14pt; /* 14-pt sans-serif font */
+  vertical-align: top; /* Align text at the top of cells spanning rows */
+}
+
+/* Term and definition boxes */
+.definition-box {
+  border: 3px solid yellow; /* 3-px solid yellow border */
+  width: 75%; /* Occupies 75% of the width */
+  margin: 10px auto; /* Center the box */
+  padding: 10px;
+}

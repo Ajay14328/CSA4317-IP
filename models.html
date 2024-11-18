@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bike Models</title>
+    <style>
+        body {
+            background-color: #ffffff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Bike Models</h2>
+    <div id="model-info">
+        <p>Select a brand to see the models and specifications.</p>
+    </div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const brand = urlParams.get('brand');
+
+        const modelsData = {
+            brand1: [
+                { model: 'Model A1', specs: 'Specifications for Model A1' },
+                { model: 'Model A2', specs: 'Specifications for Model A2' },
+            ],
+            brand2: [
+                { model: 'Model B1', specs: 'Specifications for Model B1' },
+                { model: 'Model B2', specs: 'Specifications for Model B2' },
+            ],
+            brand3: [
+                { model: 'Model C1', specs: 'Specifications for Model C1' },
+                { model: 'Model C2', specs: 'Specifications for Model C2' },
+            ],
+            brand4: [
+                { model: 'Model D1', specs: 'Specifications for Model D1' },
+                { model: 'Model D2', specs: 'Specifications for Model D2' },
+            ],
+        };
+
+        if (brand && modelsData[brand]) {
+            const models = modelsData[brand];
+            const modelInfo = models.map(m => `<h3>${m.model}</h3><p>${m.specs}</p>`).join('');
+            document.getElementById('model-info').innerHTML = modelInfo;
+        }
+    </script>
+</body>
+</html>

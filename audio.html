@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Editor</title>
+</head>
+<body>
+    <audio id="myAudio" controls>
+        <source src="audio.mp3" type="audio/mpeg">
+        Your browser does not support the audio tag.
+    </audio>
+    <div>
+        <label for="startTime">Start Time (seconds):</label>
+        <input type="text" id="startTime" value="0">
+        <label for="endTime">End Time (seconds):</label>
+        <input type="text" id="endTime" value="0">
+        <button id="cutButton">Cut Audio</button>
+    </div>
+
+    <script>
+        // Function to play the audio segment
+        document.getElementById('cutButton').addEventListener('click', function () {
+            const audio = document.getElementById('myAudio');
+            const startTime = parseFloat(document.getElementById('startTime').value);
+            const endTime = parseFloat(document.getElementById('endTime').value);
+
+            // Validate the input
+            if (isNaN(startTime) || isNaN(endTime)) {
+                alert('Please enter valid numeric values for start and end time.');
+                return;
+            }
+
+            if (startTime < 0 || endTime < 0 || startTime >= endTime || endTime > audio.duration) {
+                alert('Please enter valid times within the audio duration and ensure start time is less than end time.');
+                return;
+            }
+
+            // Set the audio to the start time and play
+            audio.currentTime = startTime;
+            audio.play();
+
+            // Stop the audio at the end time
+            const playDuration = (endTime - startTime) * 1000; // Convert to milliseconds
+            setTimeout(() => {
+                audio.pause();
+            }, playDuration);
+        });
+    </script>
+</body>
+</html>
